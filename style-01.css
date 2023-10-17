@@ -7,10 +7,10 @@ TASK 1
 .grid-container-task-1 {
   display: grid;
 
-  /* Use grid-template-columns to set four equal width columns */
-  /* Experiment with both the repeat() notation and writing out the full column definition */
+  grid-template-columns: repeat(4, 1fr);
 
-  /* Set the gap to 2rem to add spacing around each grid item in the contaiern */
+  gap: 2rem;
+
 }
 
 /*
@@ -22,15 +22,16 @@ TASK 1
 .grid-container-task-2 {
   display: grid;
 
-  /* Use grid-template-columns to set four equal width columns */
+  grid-template-columns: repeat(4, 1fr);
 
-  /* Use grid-template-rows to set two rows each with an equal height */
+  grid-template-rows: repeat (2, 1fr);
 
-  /* Set the gap to 2rem to add spacing around each grid item in the contaiern */
+  gap: 2rem;
 }
 
 .grid-container-task-2 .item-1 {
-  /* Add a grid-row-start to have this item start at the top most row line */
+  grid-row-start: 1;
+  grid-row-end: -1;
 
   /*
     Add a grid-row-end to have the item start at the last row line
@@ -39,14 +40,9 @@ TASK 1
 }
 
 .grid-container-task-2 .item-2 {
-  /* Use grid-columnd-start to start at the 3rd column line */
-
-  /*
-    Use grid-column-end to end at the last column line
-    HINT: Find out what "-1" does
-  */
-
-  /* Use grid-row-start to start at the 2nd row line */
+  grid-column-start: 3;
+  grid-column-end: -1;
+  grid-row-start: 2;
 }
 
 /*
@@ -58,37 +54,43 @@ TASK 1
 .grid-container-task-3 {
   display: grid;
 
-  /* Use grid-template-columns to set four equal width columns */
+  grid-template-columns: repeat(4, 1fr);
 
   /* Use grid-template-rows to set four rows each with an equal height */
+  grid-template-rows: repeat(4, 1fr);
 
   /* Set the gap to 2rem to add spacing around each grid item in the contaiern */
+  gap: 2rem;
 }
 
 .grid-container-task-3 .item-1 {
-  /* grid-column-start at line 1 */
-
-  /* grid-column-end at line 4 */
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 .grid-container-task-3 .item-2 {
-  /* grid-column-start at line 4 */
-
-  /* grid-row-start at line 1 */
-
-  /* grid-row-end at the last row line */
+  grid-column-start: 4;
+  grid-row-start: 1;
+  grid-row-end: -1;
 }
 
 .grid-container-task-3 .item-3 {
-  /* that's enough hints for now */
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-row-end: 4;
 }
 
 .grid-container-task-3 .item-4 {
-  /* You totally got this */
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 4;
 }
 
 .grid-container-task-3 .item-5 {
-  /* Easy as pie */
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-end: -1;
 }
 
 /*
@@ -97,98 +99,94 @@ TASK 1
 
   */
 
-.grid-container-task-4 {
-  display: grid;
-
-  /* The grid-template-columns is set two small bits of patting on either side and four equal width columns in the middle  */
-  grid-template-columns: 2rem 1fr 1fr 1fr 1fr 2rem;
-
-  /* The grid-template-rows to set have three equal height rows */
-  grid-template-rows: repeat(3, 1fr);
-
-   /* Set the gap to 2rem to add spacing around each grid item in the contaiern */
-   gap: 2rem;
-
+  .grid-container-task-4 {
+    display: grid;
+  
+    /* Use grid-template-columns to set four equal width columns */
+    grid-template-columns: 2rem 1fr 1fr 1fr 1fr 2rem;
+  
+    /* Use grid-template-rows to set two rows each with an equal height */
+    grid-template-rows: repeat(3, 1fr);
+  
+    /* Use grid-template-areas to name the different sections */
+    grid-template-areas:
+      "header header header header header header"
+      ".       main    main    main    side    ."
+      "footer  footer  footer  footer  footer  footer";
+  
+    /* Set the gap to 2rem to add spacing around each grid item in the contaiern */
+    gap: 2rem;
+  }
+  
+  .grid-container-task-4 .header {
+    grid-area: header;
+  }
+  
+  .grid-container-task-4 .main {
+    grid-area: main;
+  }
+  
+  .grid-container-task-4 .side {
+    grid-area: side;
+  }
+  
+  .grid-container-task-4 .footer {
+    grid-area: footer;
+  }
+  
   /*
-    Use grid-template-areas to name the different sections
-
-    We know from our grid-template-columns decleration above
-    that we have 6 columns and 3 rows in total
-
-    So we need to figure out the areas for those different spaces
-
-    A A A A A A  (This sets up an area called "A" that spans across 6 rows)
-    . . . C D .  (This setups up a bunch of blank areas "." and then two areas, one called C and one called D)
-    B B B B B B  (This sets up an area called "B" that spans across 6 rows)
-
-    Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Grid_Template_Areas
-
-  */
-
-  /* Fill in here */
-
-}
-
-.grid-container-task-4 .header {
-  grid-area: header;
-}
-
-.grid-container-task-4 .main {
-  grid-area: main;
-}
-
-.grid-container-task-4 .side {
-  grid-area: side;
-}
-
-.grid-container-task-4 .footer {
-  grid-area: footer;
-}
-
-/*
-
+  
     TASK 5
-
+  
   */
+  
+  .grid-container-task-5 {
+    display: grid;
+  
+    /* Use grid-template-columns to set eight 8 equal width columns */
+    grid-template-columns: repeat(8, 1fr);
+  }
+  
+  .grid-container-task-5 .item-1 {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  
+  .grid-container-task-5 .item-2 {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+  
+  .grid-container-task-5 .item-3 {
+    grid-column-start: 3;
+    grid-row-start: 3;
+  }
+  
+  .grid-container-task-5 .item-4 {
+    grid-column-start: 4;
+    grid-row-start: 4;
+  }
+  
+  .grid-container-task-5 .item-5 {
+    grid-column-start: 5;
+    grid-row-start: 5;
+  }
+  
+  .grid-container-task-5 .item-6 {
+    grid-column-start: 6;
+    grid-row-start: 6;
+  }
+  
+  .grid-container-task-5 .item-7 {
+    grid-column-start: 7;
+    grid-row-start: 7;
+  }
+  
+  .grid-container-task-5 .item-8 {
+    grid-column-start: 8;
+    grid-row-start: 8;
+  }
 
-.grid-container-task-5 {
-  display: grid;
-
-  /* Use grid-template-columns to set eight 8 equal width columns */
-  grid-template-columns: repeat(8, 1fr);
-}
-
-.grid-container-task-5 .item-1 {
-  /* Fill in here */
-}
-
-.grid-container-task-5 .item-2 {
-  /* Fill in here */
-}
-
-.grid-container-task-5 .item-3 {
-  /* Fill in here */
-}
-
-.grid-container-task-5 .item-4 {
-  /* Fill in here */
-}
-
-.grid-container-task-5 .item-5 {
-  /* Fill in here */
-}
-
-.grid-container-task-5 .item-6 {
-  /* Fill in here */
-}
-
-.grid-container-task-5 .item-7 {
-  /* Fill in here */
-}
-
-.grid-container-task-5 .item-8 {
-  /* Fill in here */
-}
 
 /*
   AUXILARY CSS FOR THE GRID CONTAINERS AND CHILDREN - DO NOT MODIFY
